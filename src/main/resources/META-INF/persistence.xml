@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+		version="2.1"-->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+		version="2.0">
+	<persistence-unit name="jpaExamples" transaction-type="RESOURCE_LOCAL">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<class>org.apache.solomax.jpaExamples.model.Person</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:./db;TRACE_LEVEL_FILE=0" />
+			<property name="javax.persistence.jdbc.user" value="test" />
+			<property name="javax.persistence.jdbc.password" value="test" />
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+			<property name="openjpa.Log" value="DefaultLevel=ERROR, Tool=ERROR" />
+		</properties>
+	</persistence-unit>
+</persistence>
